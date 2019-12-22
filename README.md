@@ -1,2 +1,2 @@
 # handpose-est
-pytorch-openpose edited to estimate hand pose from RGBD stream input
+This repository is based on pytorch-openpose. Changes are made to realize 3D hand pose estimation from RGBD stream input. Currently, it uses data from Realsense D435 recorded from realsense viewer in '.bag' format.
