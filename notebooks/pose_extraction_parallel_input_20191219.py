@@ -30,7 +30,7 @@ import matplotlib
 from torchvision import transforms
 from skimage.measure import label
 
-input_address = "/home/jingxuanli/Documents/20191219_141054.bag"
+input_address = "~/Documents/20191219_141054.bag"
 #input_address = "/mnt/RAM_disk/20191219_141054.bag"
 use_recording = True
 repeat_recording = False
@@ -38,7 +38,7 @@ im_show = True
 write2file = False
 batch_size = 1
 if write2file:
-    text_file = open("/home/jingxuanli/Documents/Output.txt", "w")
+    text_file = open("~/Documents/Output.txt", "w")
     text_file.write("No\tPoint0x\tPoint0y\tPoint0z\tPoint1x\tPoint1y\tPoint1z\tPoint5x\tPoint5y\tPoint5z\tPoint9x\tPoint9y\tPoint9z\tPoint13x\tPoint13y\tPoint13z\tPoint17x\tPoint17y\tPoint17z\n")
 # Create a pipeline
 pipeline = rs.pipeline()
