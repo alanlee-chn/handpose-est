@@ -30,15 +30,24 @@ import matplotlib
 from torchvision import transforms
 from skimage.measure import label
 
-input_address = "../../../Documents/20191219_141054.bag"
+
+#settings
+input_address = "../../../Documents/recordings/20191220_151439.bag"
+text_address = "../../../Documents/Output.txt"
 #input_address = "/mnt/RAM_disk/20191219_141054.bag"
 use_recording = True
 repeat_recording = False
 im_show = True
-write2file = False
+write2file = True
 batch_size = 1
+depth_width = 848
+depth_height = 480
+rgb_width = 960
+rgb_height = 540
+
+
 if write2file:
-    text_file = open("../../../Documents/Output.txt", "w")
+    text_file = open(text_address, "w")
     text_file.write("No\tPoint0x\tPoint0y\tPoint0z\tPoint1x\tPoint1y\tPoint1z\tPoint5x\tPoint5y\tPoint5z\tPoint9x\tPoint9y\tPoint9z\tPoint13x\tPoint13y\tPoint13z\tPoint17x\tPoint17y\tPoint17z\n")
 # Create a pipeline
 pipeline = rs.pipeline()
@@ -49,8 +58,8 @@ config = rs.config()
 if use_recording:
     rs.config.enable_device_from_file(config, input_address, repeat_playback=repeat_recording)
 
-config.enable_stream(rs.stream.depth, 848, 480, rs.format.z16, 15)
-config.enable_stream(rs.stream.color, 1920, 1080, rs.format.rgb8, 15)
+config.enable_stream(rs.stream.depth, depth_width, depth_height, rs.format.z16, 15)
+config.enable_stream(rs.stream.color, rgb_width, rgb_height, rs.format.rgb8, 15)
 
 # Start streaming
 profile = pipeline.start(config)
